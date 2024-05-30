@@ -15,7 +15,7 @@ function solveEquation() {
     steps += `<p>Calculate the discriminant: Δ = b² - 4ac</p>`;
     steps += `<p>Δ = ${b}² - 4 * ${a} * ${c}</p>`;
     steps += `<p>Δ = ${discriminant}</p>`;
-
+//нне
     const sqrtDiscriminant = Math.sqrt(discriminant);
     const x1 = (-b + sqrtDiscriminant) / (2 * a);
     const x2 = (-b - sqrtDiscriminant) / (2 * a);
