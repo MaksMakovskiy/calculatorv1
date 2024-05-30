@@ -35,7 +35,7 @@ function solveEquation() {
         } else {
             steps += `<p>The equation has two real roots: x₁ = ${x1}, x₂ = ${x2}</p>`;
         }
-        steps += `<p>Since a > 0, the parabola jjjjjjopens upwards.</p>`;
+
         // Determine the intervals where the function is positive or negative
         if (a > 0) {
             steps += `<p>Since a > 0, the parabola opens upwards.</p>`;
