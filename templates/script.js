@@ -15,14 +15,13 @@ function solveEquation() {
     steps += `<p>Calculate the discriminant: Δ = b² - 4ac</p>`;
     steps += `<p>Δ = ${b}² - 4 * ${a} * ${c}</p>`;
     steps += `<p>Δ = ${discriminant}</p>`;
-    const sqrtDiscriminant = Math.sqrt(discriminant);
-    const x1 = (-b + sqrtDiscriminant) / (2 * a);
-    const x2 = (-b - sqrtDiscriminant) / (2 * a);
     
     if (discriminant < 0) {
         steps += `<p>The equation has no real roots since the discriminant is less than zero.</p>`;
     } else {
-  
+        const sqrtDiscriminant = Math.sqrt(discriminant);
+        const x1 = (-b + sqrtDiscriminant) / (2 * a);
+        const x2 = (-b - sqrtDiscriminant) / (2 * a);
         
         steps += `<p>Calculate the square root of the discriminant: √Δ = ${sqrtDiscriminant}</p>`;
         steps += `<p>Calculate the roots using the quadratic formula: x = (-b ± √Δ) / 2a</p>`;
@@ -36,21 +35,36 @@ function solveEquation() {
         } else {
             steps += `<p>The equation has two real roots: x₁ = ${x1}, x₂ = ${x2}</p>`;
         }
-
-        // Determine the intervals where the function is positive or negative
-        
     }
 
-    //frt
+    // Решение неравенства
     if (a > 0) {
-            steps += `<p>Since a > 0, the parabola opens upwards.</p>`;
+        steps += `<p>Since a > 0, the parabola opens upwards.</p>`;
+        if (discriminant < 0) {
+            steps += `<p>Since the discriminant is less than zero, the function is always positive.</p>`;
+        } else {
             steps += `<p>The function is positive for x < ${Math.min(x1, x2)} and x > ${Math.max(x1, x2)}.</p>`;
             steps += `<p>The function is negative for ${Math.min(x1, x2)} < x < ${Math.max(x1, x2)}.</p>`;
+        }
+    } else if (a < 0) {
+        steps += `<p>Since a < 0, the parabola opens downwards.</p>`;
+        if (discriminant < 0) {
+            steps += `<p>Since the discriminant is less than zero, the function is always negative.</p>`;
         } else {
-            steps += `<p>Since a < 0, the parabola opens downwards.</p>`;
             steps += `<p>The function is negative for x < ${Math.min(x1, x2)} and x > ${Math.max(x1, x2)}.</p>`;
             steps += `<p>The function is positive for ${Math.min(x1, x2)} < x < ${Math.max(x1, x2)}.</p>`;
+        }
+    } else {
+        steps += `<p>The function is linear since a = 0.</p>`;
+        if (b !== 0) {
+            const x = -c / b;
+            steps += `<p>The root of the linear equation is x = ${x}</p>`;
+        } else if (c === 0) {
+            steps += `<p>The equation is 0 = 0, which is true for all x.</p>`;
+        } else {
+            steps += `<p>The equation has no solution since it is a constant non-zero value.</p>`;
+        }
     }
-    resultDiv.innerHTML = steps;
-}
     
+    resultDiv.innerHTML = steps;
+    }
