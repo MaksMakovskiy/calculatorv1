@@ -40,13 +40,14 @@ function solveEquation() {
 
     // Решение неравенства
     if (a > 0) {
+        if(discriminant > 0){
         steps += `<p>Since a > 0, the parabola opens upwards.</p>`;
-        if (discriminant < 0) {
+    } else if (discriminant < 0) {
             steps += `<p>Since the discriminant is less than zero, the function is always positive.</p>`;
-        } else {
+    } else {
             steps += `<p>The function is positive for x < ${Math.min(x1, x2)} and x > ${Math.max(x1, x2)}.</p>`;
             steps += `<p>The function is negative for ${Math.min(x1, x2)} < x < ${Math.max(x1, x2)}.</p>`;
-        }
+    }
     } else if (a < 0) {
         steps += `<p>Since a < 0, the parabola opens downwards.</p>`;
         if (discriminant < 0) {
