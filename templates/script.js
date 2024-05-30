@@ -15,13 +15,14 @@ function solveEquation() {
     steps += `<p>Calculate the discriminant: Δ = b² - 4ac</p>`;
     steps += `<p>Δ = ${b}² - 4 * ${a} * ${c}</p>`;
     steps += `<p>Δ = ${discriminant}</p>`;
-    
+
+    const sqrtDiscriminant = Math.sqrt(discriminant);
+    const x1 = (-b + sqrtDiscriminant) / (2 * a);
+    const x2 = (-b - sqrtDiscriminant) / (2 * a);
+        
     if (discriminant < 0) {
         steps += `<p>The equation has no real roots since the discriminant is less than zero.</p>`;
     } else {
-        const sqrtDiscriminant = Math.sqrt(discriminant);
-        const x1 = (-b + sqrtDiscriminant) / (2 * a);
-        const x2 = (-b - sqrtDiscriminant) / (2 * a);
         
         steps += `<p>Calculate the square root of the discriminant: √Δ = ${sqrtDiscriminant}</p>`;
         steps += `<p>Calculate the roots using the quadratic formula: x = (-b ± √Δ) / 2a</p>`;
