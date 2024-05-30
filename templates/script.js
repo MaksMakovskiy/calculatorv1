@@ -49,15 +49,18 @@ function solveEquation() {
             steps += `<p>The function is negative for ${Math.min(x1, x2)} < x < ${Math.max(x1, x2)}.</p>`;
     }
     } else if (a < 0) {
+        if(discriminant>0){
         steps += `<p>Since a < 0, the parabola opens downwards.</p>`;
-        if (discriminant < 0) {
+        } else if (discriminant < 0) {
             steps += `<p>Since the discriminant is less than zero, the function is always negative.</p>`;
         } else {
             steps += `<p>The function is negative for x < ${Math.min(x1, x2)} and x > ${Math.max(x1, x2)}.</p>`;
             steps += `<p>The function is positive for ${Math.min(x1, x2)} < x < ${Math.max(x1, x2)}.</p>`;
         }
     } else {
-        steps += `<p>The function is linear since a = 0.</p>`;
+        if(discriminant>0){
+        steps += `<p>The function is linear since a = 0.</p>`;}
+        
         if (b !== 0) {
             const x = -c / b;
             steps += `<p>The root of the linear equation is x = ${x}</p>`;
