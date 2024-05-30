@@ -35,7 +35,19 @@ function solveEquation() {
         } else {
             steps += `<p>The equation has two real roots: x₁ = ${x1}, x₂ = ${x2}</p>`;
         }
+        
+        // Determine the intervals where the function is positive or negative
+        if (a > 0) {
+            steps += `<p>Since a > 0, the parabola opens upwards.</p>`;
+            steps += `<p>The function is positive for x < ${Math.min(x1, x2)} and x > ${Math.max(x1, x2)}.</p>`;
+            steps += `<p>The function is negative for ${Math.min(x1, x2)} < x < ${Math.max(x1, x2)}.</p>`;
+        } else {
+            steps += `<p>Since a < 0, the parabola opens downwards.</p>`;
+            steps += `<p>The function is negative for x < ${Math.min(x1, x2)} and x > ${Math.max(x1, x2)}.</p>`;
+            steps += `<p>The function is positive for ${Math.min(x1, x2)} < x < ${Math.max(x1, x2)}.</p>`;
+        }
     }
     
     resultDiv.innerHTML = steps;
 }
+    
